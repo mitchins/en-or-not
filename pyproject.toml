@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "innit-detector"
 version = "1.1.0"
-description = "Fast English vs Non-English text detection (ONNX or Tinygrad backends)"
+description = "en-or-not: fast English vs non-English text detection (ONNX or TinyGrad backends)"
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
@@ -60,10 +60,10 @@ dev = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/Mitchins/innit-language-detection"
-"Model" = "https://huggingface.co/Mitchins/innit-language-detection"
-"Bug Reports" = "https://github.com/Mitchins/innit-language-detection/issues"
-"Repository" = "https://github.com/Mitchins/innit-language-detection"
+"Homepage" = "https://github.com/mitchins/en-or-not"
+"Model" = "https://huggingface.co/Mitchins/en-or-not"
+"Bug Reports" = "https://github.com/mitchins/en-or-not/issues"
+"Repository" = "https://github.com/mitchins/en-or-not"
 
 [project.scripts]
 innit = "innit.detector:main"

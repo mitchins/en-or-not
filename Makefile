@@ -45,14 +45,14 @@ build:  ## Build package
 
 publish:  ## Publish to PyPI
 	@if [ -z "$$PYPI_API_TOKEN" ]; then \
-	  echo "❌ PYPI_API_TOKEN not set"; exit 1; \
+	  echo "PYPI_API_TOKEN not set"; exit 1; \
 	fi
 	python -m pip install twine >/dev/null 2>&1 || true
 	twine upload -u __token__ -p $$PYPI_API_TOKEN dist/*
 
 publish-test:  ## Publish to TestPyPI
 	@if [ -z "$$TEST_PYPI_API_TOKEN" ]; then \
-	  echo "❌ TEST_PYPI_API_TOKEN not set"; exit 1; \
+	  echo "TEST_PYPI_API_TOKEN not set"; exit 1; \
 	fi
 	python -m pip install twine >/dev/null 2>&1 || true
 	twine upload --repository testpypi -u __token__ -p $$TEST_PYPI_API_TOKEN dist/*

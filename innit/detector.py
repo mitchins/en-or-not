@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-innit - Fast English vs Non-English Text Detection
+en-or-not - Fast English vs Non-English Text Detection
 
 A lightweight utility for binary language detection with multiple backend support.
 Can be used as a CLI tool or imported as a Python library.
@@ -139,16 +139,16 @@ class TinyByteCNN_TG:
 
 
 # Model configuration
-MODEL_URL = "https://huggingface.co/Mitchins/innit-language-detection/resolve/main/model.onnx"
+MODEL_URL = "https://huggingface.co/Mitchins/en-or-not/resolve/main/model.onnx"
 MODEL_PATH = Path.home() / ".innit" / "model.onnx"
 MODEL_SIZE_MB = 0.6  # Approximate size for progress
 
 # Tinygrad asset locations (SafeTensors + config)
 TINY_MODEL_URL = (
-    "https://huggingface.co/Mitchins/innit-language-detection/resolve/main/model.safetensors"
+    "https://huggingface.co/Mitchins/en-or-not/resolve/main/model.safetensors"
 )
 TINY_CONFIG_URL = (
-    "https://huggingface.co/Mitchins/innit-language-detection/resolve/main/config.json"
+    "https://huggingface.co/Mitchins/en-or-not/resolve/main/config.json"
 )
 TINY_MODEL_PATH = Path.home() / ".innit" / "model.safetensors"
 TINY_CONFIG_PATH = Path.home() / ".innit" / "config.json"
@@ -547,10 +547,10 @@ def download_model(force: bool = False, backend: str = "both") -> bool:
                             break
                         f.write(chunk)
                         progress.update(len(chunk))
-            print(f"\n✅ Downloaded to {dest}")
+            print(f"\nDownloaded to {dest}")
             return True
         except Exception as e:
-            print(f"\n❌ Download failed: {e}")
+            print(f"\nDownload failed: {e}")
             if dest.exists():
                 dest.unlink()
             return False
@@ -577,7 +577,7 @@ def download_model(force: bool = False, backend: str = "both") -> bool:
 def main():
     """Main CLI interface."""
     parser = argparse.ArgumentParser(
-        description="innit - Fast English vs Non-English Text Detection",
+        description="en-or-not - Fast English vs Non-English Text Detection",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
@@ -625,7 +625,7 @@ Examples:
         help="For --chunk-strategy ends: percentage from each end (0-0.5)",
     )
 
-    parser.add_argument("--version", action="version", version="innit 1.0")
+    parser.add_argument("--version", action="version", version="en-or-not v1 (innit-detector compatibility package)")
 
     args = parser.parse_args()
 
@@ -663,15 +663,15 @@ Examples:
     try:
         detector = InnitDetector(model_path=args.model, backend=backend)
     except FileNotFoundError as e:
-        print(f"❌ {e}")
-        print("💡 Run with --download to get the model:")
+        print(f"{e}")
+        print("Run with --download to get the model:")
         print(f"   python {sys.argv[0]} --download")
         sys.exit(1)
     except ImportError as e:
-        print(f"❌ {e}")
+        print(f"{e}")
         if args.backend == "auto":
             print(
-                "💡 Install a backend: 'pip install innit-detector[onnx]' for ONNX, or TinyGrad is already bundled."
+                "Install a backend with 'pip install innit-detector[onnx]' for ONNX; TinyGrad is bundled."
             )
         sys.exit(1)
 
@@ -684,7 +684,7 @@ Examples:
             )
             results.append({"text": text, **result})
         except Exception as e:
-            print(f"❌ Error processing '{text}': {e}")
+            print(f"Error processing '{text}': {e}")
             continue
 
     # Output results

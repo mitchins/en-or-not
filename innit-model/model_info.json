@@ -1,5 +1,5 @@
 {
-  "model_name": "innit",
+  "model_name": "en-or-not",
   "version": "1.0",
   "task": "english_detection",
   "architecture": "TinyByteCNN_EN",
@@ -11,7 +11,12 @@
     "EN"
   ],
   "validation_accuracy": 99.94,
-  "challenge_accuracy": 100.0,
+  "ood_accuracy": 96.9391,
+  "ood_examples": 17544,
+  "ood_language_macro_accuracy": 97.3802,
+  "ood_source": "Helsinki-NLP/tatoeba, pinned 2026-07-18 export",
+  "repository": "https://github.com/mitchins/en-or-not",
+  "model_repository": "https://huggingface.co/Mitchins/en-or-not",
   "files": {
     "pytorch": "model.safetensors",
     "config": "config.json",

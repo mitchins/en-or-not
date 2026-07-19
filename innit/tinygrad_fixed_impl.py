@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-innit - Fast English vs Non-English Text Detection (Fixed Tinygrad Implementation)
+en-or-not - Fast English vs Non-English Text Detection (Fixed TinyGrad Implementation)
 
 A pure tinygrad implementation without nn helpers that might have subtle differences.
 """
@@ -153,7 +153,7 @@ class TinyByteCNN_Pure:
 
 
 class InnitTinygradFixed:
-    """Fixed tinygrad-based innit detector"""
+    """Fixed TinyGrad-based en-or-not v1 detector."""
 
     def __init__(self, model_path: str | Path | None = None):
         self.model_path = Path(model_path) if model_path else MODEL_PATH
@@ -180,7 +180,7 @@ class InnitTinygradFixed:
         pt_weights = load_safetensors_numpy(self.model_path)
         self.model.load_weights(pt_weights)
 
-        print("✅ Weights loaded successfully!")
+        print("Weights loaded successfully")
 
     def predict(self, text: str) -> dict[str, float | str | bool]:
         """Predict if text is English or not"""
@@ -257,7 +257,7 @@ class InnitTinygradFixed:
 
 def test_fixed_implementation():
     """Test the fixed implementation"""
-    print("🔥 Testing Fixed Tinygrad Implementation")
+    print("Testing fixed TinyGrad implementation")
     print("=" * 45)
 
     # Initialize detector

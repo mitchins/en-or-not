@@ -1,6 +1,10 @@
 # Data Sources and Licensing
 
-This document records the datasets used to train the innit model and their licensing terms.
+This document records the datasets used for the en-or-not v1 model and their licensing terms.
+
+The implementation and provenance companion is maintained at
+https://github.com/mitchins/en-or-not. The v1 model artifacts and published OOD
+evaluation set are maintained at https://huggingface.co/Mitchins/en-or-not.
 
 ## English Text Sources
 
@@ -12,7 +16,7 @@ This document records the datasets used to train the innit model and their licen
 - **License Status**: 
   - **Text content**: Public domain in the United States
   - **Project Gutenberg trademark**: Applies to redistribution of their ebook files
-  - **Usage for training**: ✅ Permitted - we train on the text content, not redistributing ebook files
+- **Usage for training**: Permitted - we train on the text content, not redistributing ebook files
 - **Note**: We do not redistribute Project Gutenberg ebook files or use their trademark in our branding
 
 ### 2. Language Identification Dataset
@@ -53,14 +57,14 @@ This document records the datasets used to train the innit model and their licen
 
 ## Legal Compliance
 
-### What We Do ✅
+### What We Do
 - Train on text content that is public domain or permissively licensed
 - Create original model weights through our training process
 - Use datasets according to their intended research/academic use
 - Document all data sources and their licenses
 - Release our model under MIT license
 
-### What We Don't Do ❌
+### What We Don't Do
 - Redistribute raw Project Gutenberg ebook files
 - Use the Project Gutenberg trademark in branding
 - Include copyrighted text in our model distribution
@@ -71,10 +75,10 @@ This document records the datasets used to train the innit model and their licen
 
 | Dataset | License | Usage | Status |
 |---------|---------|-------|---------|
-| Project Gutenberg texts | Public Domain (US) | English positive samples | ✅ Permitted |
-| papluca/language-identification | Apache 2.0 | Both English and non-English samples | ✅ Permitted |
-| OSCAR (optional) | CommonCrawl terms | Non-English negative samples | ✅ Research use |
-| fastText LID (optional teacher) | CC-BY-SA sources | Training guidance only | ✅ Not redistributed |
+| Project Gutenberg texts | Public Domain (US) | English positive samples | Permitted |
+| papluca/language-identification | Apache 2.0 | Both English and non-English samples | Permitted |
+| OSCAR (optional) | CommonCrawl terms | Non-English negative samples | Research use |
+| fastText LID (optional teacher) | CC-BY-SA sources | Training guidance only | Not redistributed |
 
 ## Verification
 
@@ -84,4 +88,4 @@ All datasets are loaded from HuggingFace Hub with their license information clea
 - https://huggingface.co/datasets/papluca/language-identification
 - https://huggingface.co/datasets/oscar-corpus/oscar
 
-Last updated: 2024
+Last updated: 2026-07-19

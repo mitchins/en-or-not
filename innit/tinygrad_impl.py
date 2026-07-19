@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-innit - Fast English vs Non-English Text Detection (Tinygrad Implementation)
+en-or-not - Fast English vs Non-English Text Detection (TinyGrad Implementation)
 
-A tinygrad-based implementation of the innit language detection model.
+A TinyGrad-based implementation of the en-or-not v1 language detection model.
 Converts the original PyTorch/ONNX model to run on tinygrad.
 """
 
@@ -89,7 +89,7 @@ class TinyByteCNN_TG:
 
 
 class InnitTinygrad:
-    """Tinygrad-based innit detector"""
+    """TinyGrad-based en-or-not v1 detector."""
 
     def __init__(self, model_path: str | Path | None = None):
         # Resolve model/config paths
@@ -130,7 +130,7 @@ class InnitTinygrad:
         # Set model to eval mode (disable batch norm training)
         self._set_eval_mode()
 
-        print("✅ Weights loaded successfully!")
+        print("Weights loaded successfully")
 
     def _resolve_paths(self, model_path: str | Path | None) -> tuple[Path, Path]:
         # Choose provided path if given
@@ -259,7 +259,7 @@ class InnitTinygrad:
 
 def benchmark_tinygrad():
     """Simple benchmark comparing tinygrad vs ONNX"""
-    print("🔥 Tinygrad innit benchmark")
+    print("en-or-not TinyGrad benchmark")
     print("=" * 40)
 
     # Initialize tinygrad detector

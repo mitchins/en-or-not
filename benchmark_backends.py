@@ -10,7 +10,7 @@ from innit_detector import InnitDetector
 
 def benchmark_backends():
     """Compare performance and accuracy between backends"""
-    print("🏁 Backend Performance Comparison")
+    print("Backend performance comparison")
     print("=" * 50)
 
     # Test cases
@@ -67,18 +67,18 @@ def benchmark_backends():
         print(f"{display_text:<25} {expected:<10} {onnx_display:<15} {tg_display:<15} {onnx_time:<12.2f} {tg_time:.2f}")
 
     print("-" * 95)
-    print("\n📊 Summary:")
+    print("\nSummary:")
     print(f"ONNX Accuracy:     {onnx_correct}/{len(test_cases)} ({onnx_correct/len(test_cases)*100:.1f}%)")
     print(f"Tinygrad Accuracy: {tg_correct}/{len(test_cases)} ({tg_correct/len(test_cases)*100:.1f}%)")
     print(f"ONNX Avg Time:     {total_onnx_time/len(test_cases):.2f}ms")
     print(f"Tinygrad Avg Time: {total_tg_time/len(test_cases):.2f}ms")
     print(f"Speed Difference:  {total_tg_time/total_onnx_time:.1f}x slower")
 
-    print("\n🏷️ Backend Characteristics:")
+    print("\nBackend characteristics:")
     print("ONNX:")
     print("  + Highly optimized, fastest inference")
     print("  + Production-ready, battle-tested")
-    print("  + 100% accuracy on test cases")
+    print("  + Suitable for production CPU inference")
     print("  - Requires onnxruntime dependency (~100MB)")
 
     print("\nTinygrad:")
